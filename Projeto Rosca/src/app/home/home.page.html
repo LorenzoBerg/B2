@@ -1,0 +1,64 @@
+
+<ion-content [fullscreen]="true">
+  <div class="rosca">
+    <img src="assets/mecado.png">
+  <div id="posicionamento">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-item>
+            <ion-input placeholder="Prod" [(ngModel)]="texto" (keyup.enter)="adiciona()"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-item>
+            <ion-input placeholder="R$" [(ngModel)]="preco" (keyup.enter)="adiciona()"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-item>
+            <ion-input placeholder="Qnt" [(ngModel)]="quanti" (keyup.enter)="adiciona()"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="3">
+          <ion-button color="primary" size="small" (click)="adiciona()">
+            <ion-icon name="save-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="9">
+          <ion-item>
+            <ion-input placeholder="Total" [(ngModel)]="resultado" (keyup.enter)="adiciona()"></ion-input> <ins style="text-decoration: none;">R$.</ins>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item *ngFor = "let elemento_da_lista of variavel_lista;">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="9">
+                  {{elemento_da_lista[1][0]}} <!-- Exibir nome do item da lista-->
+                  {{elemento_da_lista[1][1]}} <!-- Exibir preço do item da lista-->
+                  {{elemento_da_lista[1][2]}} <!-- Exibir quantidade do item da lista-->
+                </ion-col>
+                <ion-col size="3">
+                  <ion-button color="danger" size="small" (click)="remove(elemento_da_lista[0][0])">
+                    <!-- envia como parâmetro o indice do elemento da lista-->
+                    <ion-icon name="trash-outline"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  </div>
+</ion-content>
