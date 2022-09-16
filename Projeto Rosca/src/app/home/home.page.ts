@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 
@@ -21,7 +22,7 @@ export class HomePage {
   texto: string = "";
   preco: string = "";
   quanti: string = "";
-  resultado: number;
+  resultado: number = 0;
   aux = 0;
 
   async adiciona() {
@@ -36,7 +37,7 @@ export class HomePage {
       this.aux = this.aux + 1;
       await this.storage.set(this.aux.toString(), [this.texto, this.preco,this.quanti]);
       this.atualizaLista();
-      this.resultado = parseInt(this.preco)*parseInt(this.quanti);
+     // this.resultado = this.resultado+parseInt(this.preco)parseInt(this.quanti);
       this.texto = "";
       this.preco = "";
       this.quanti = "";
@@ -55,8 +56,10 @@ export class HomePage {
 
   atualizaLista() {
     this.variavel_lista = [];
+    this.resultado = 0;
     this.storage.forEach((value, key, index) => {
       this.variavel_lista.push([key, value]);
+      this.resultado = this.resultado + (value[1]*value[2])
     })
   }
 
