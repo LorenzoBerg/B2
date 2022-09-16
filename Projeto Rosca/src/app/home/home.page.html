@@ -31,7 +31,7 @@
         </ion-col>
         <ion-col size="9">
           <ion-item>
-            <ion-input placeholder="Total" [(ngModel)]="resultado" (keyup.enter)="adiciona()"></ion-input> <ins style="text-decoration: none;">R$.</ins>
+            <ion-input placeholder="Total" [(ngModel)]="resultado" (keyup.enter)="adiciona()" readOnly></ion-input> <ins style="text-decoration: none;">R$.</ins>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -41,9 +41,10 @@
             <ion-grid>
               <ion-row>
                 <ion-col size="9">
-                  {{elemento_da_lista[1][0]}} <!-- Exibir nome do item da lista-->
-                  {{elemento_da_lista[1][1]}} <!-- Exibir preço do item da lista-->
-                  {{elemento_da_lista[1][2]}} <!-- Exibir quantidade do item da lista-->
+                  {{elemento_da_lista[1][0]}} <ins style="text-decoration: none;">:</ins><!-- Exibir nome do item da lista-->
+                  {{elemento_da_lista[1][2]}} <ins style="text-decoration: none;">x</ins><!-- Exibir quantidade do item da lista-->
+                  {{elemento_da_lista[1][1]}} <ins style="text-decoration: none;">Reais</ins><!-- Exibir preço do item da lista-->
+
                 </ion-col>
                 <ion-col size="3">
                   <ion-button color="danger" size="small" (click)="remove(elemento_da_lista[0][0])">
